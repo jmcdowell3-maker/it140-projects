@@ -1,22 +1,39 @@
-"""Module Six Milestone starter for the simplified movement prototype."""
 
-# A dictionary for the simplified dragon text game.
-# The dictionary links a room to other rooms.
+# Robinson High School Adventure Game
+# IT 140 Milestone - Room Movement and Item Collection
+
+# A dictionary that connects each room to its available directions.
 rooms = {
-    "Great Hall": {"south": "Bedroom"},
-    "Bedroom": {"north": "Great Hall", "east": "Cellar"},
-    "Cellar": {"west": "Bedroom"},
+    "Outside Administration": {"east": "Administration Office"},
+    "Administration Office": {"west": "Outside Administration",
+                              "south": "Library"},
+    "Library": {"north": "Administration Office",
+                "south": "History Room"},
+    "History Room": {"north": "Library",
+                     "east": "Science Room"},
+    "Science Room": {"west": "History Room",
+                     "south": "English Room"},
+    "English Room": {"north": "Science Room",
+                     "east": "Shop Room"},
+    "Shop Room": {"west": "English Room",
+                  "south": "Math Room"},
+    "Math Room": {"north": "Shop Room",
+                  "west": "Cafeteria"},
+    "Cafeteria": {"east": "Math Room"}
 }
 
+# Each room contains one item, except the starting room and cafeteria.
+room_items = {
+    "Administration Office": "map",
+    "Library": "book",
+    "History Room": "armor",
+    "Science Room": "potion",
+    "English Room": "spell",
+    "Shop Room": "sword",
+    "Math Room": "power boost"
+}
 
-# TODO: Set the player's starting room for the simplified prototype.
-
-# TODO: Create the gameplay loop required by the milestone.
-# Within the loop, complete the required behavior in small steps:
-#   1. Display the current room.
-#   2. Prompt for a movement command or "exit".
-#   3. Branch for a valid move, exit, or invalid input.
-#   4. Update the room only after a valid movement command.
-#   5. Continue until the required exit condition is reached.
-
-# TODO: Run and debug all milestone cases in prototype/README.md.
+# List of all seven items required to defeat Demon Joc.
+required_items = [
+    "map", "book", "armor", "potion",
+    "spell", "sword", "power boost"
